@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "117244972046",
+    "project_id": "prettygoodcooking-926a3",
+    "storage_bucket": "prettygoodcooking-926a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117244972046:android:136202381116b18b98805f",
+        "android_client_info": {
+          "package_name": "com.example.pretty_good_cooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117244972046-c9tuj7p3skc967vlvheb4le894ek2pg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3rxVKmOqBE7Mdf_w7_NLOXRduGlgg-n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117244972046-c9tuj7p3skc967vlvheb4le894ek2pg4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "117244972046-kbgtm669uf7plinkhj3bothhtk1n53me.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prettyGoodCooking"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
