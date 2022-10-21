@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:home_page/home_page.dart';
 import 'package:pretty_good_cooking/firebase_options.dart';
 import 'package:component_library/component_library.dart';
 import 'package:pretty_good_cooking/routes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: AppTheme().currentTheme,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        HomePageLocalizations.delegate
+      ],
+      supportedLocales: const [Locale('en', '')],
       routerConfig: router,
     );
   }

@@ -1,9 +1,14 @@
 import 'dart:ui';
 
-const darkGreen = Color(0xff283618);
-const bej = Color(0xffFEFAE0);
-const navBarLight = Color(0xffDDA15E);
-
+class AppColors {
+  static const darkGreen = Color(0xff283618);
+  static const bej = Color(0xffFEFAE0);
+  static const navBarLight = Color(0xffDDA15E);
+  static const lightGreen = Color(0xff39b54a);
+  static const pink = Color(0xffe75456);
+  static const brown = Color(0xff754c24);
+  static const darkBej = Color(0xffc69c6d);
+}
 
 Map<int, Color> darkGreenCodes = {
   50: const Color.fromRGBO(40, 54, 24, .1),

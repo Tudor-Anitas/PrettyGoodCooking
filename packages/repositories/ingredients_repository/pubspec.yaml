@@ -1,23 +1,22 @@
-name: component_library
+name: ingredients_repository
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
-publish_to: none
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
+  firebase_core: ^1.24.0
   flutter:
     sdk: flutter
-  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

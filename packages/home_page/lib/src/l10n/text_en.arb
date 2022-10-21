@@ -1,0 +1,9 @@
+{
+    "header": "Choose your ingredients",
+    "ingredientsButton": "Ingredients",
+    "fruits": "FRUITS",
+    "meat": "MEAT",
+    "vegetables": "VEGETABLES",
+    "other": "OTHER",
+    "done": "DONE"
+}

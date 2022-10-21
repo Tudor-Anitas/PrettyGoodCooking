@@ -31,7 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations: # Add this line
+    sdk: flutter 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -43,6 +44,7 @@ dependencies:
     path: 'packages/home_page'
 
   go_router: ^5.1.0
+  flutter_bloc: ^8.1.1
 
 dev_dependencies:
   flutter_test:

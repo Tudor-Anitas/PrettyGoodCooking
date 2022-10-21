@@ -1,4 +1,10 @@
 export 'src/component_library.dart';
 export 'src/theme/app_theme.dart';
-export 'src/theme/app_theme_data.dart';
 export 'src/theme/radius.dart';
+export 'src/theme/spacing.dart';
+export 'src/theme/colors.dart';
+export 'src/card_box.dart';
+export 'src/custom_text.dart';
+export 'src/spacer.dart';
+export 'src/icon_button.dart';
+export 'src/long_button.dart';
