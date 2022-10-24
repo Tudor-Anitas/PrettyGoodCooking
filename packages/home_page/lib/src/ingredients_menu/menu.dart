@@ -48,12 +48,18 @@ class _IngredientsMenuState extends State<IngredientsMenu> {
                   height: screenHeight * 0.5,
                   width: screenWidth,
                   category: state is MenuCategoryOpen
-                      ? state.category
+                      ? state.menu.category!
                       : FoodCategory.none),
               const SizedBox(
                 height: Spacing.medium,
               ),
-              LongButton(text: HomePageLocalizations.of(context).done, onTap: () {})
+              LongButton(
+                  text: HomePageLocalizations.of(context).done,
+                  onTap: () {
+                    context
+                        .read<IngredientsMenuCubit>()
+                        .closeIngredientsCategory();
+                  })
             ]),
           ),
         );

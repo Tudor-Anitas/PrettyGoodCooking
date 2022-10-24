@@ -1,5 +1,5 @@
-name: home_page
-description: Contains the home page of the app and it lets the users choose their available ingredients
+name: models
+description: A new Flutter package project.
 version: 0.0.1
 homepage:
 publish_to: none
@@ -11,18 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  component_library:
-    path: ../component_library
 
-  models:
-    path: ../models
+  home_page:
+    path: ../home_page
 
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
-  flutter_bloc: ^8.1.1
-  firebase_core: ^1.24.0
-  cloud_firestore: ^3.5.1
   equatable: ^2.0.5
 
 dev_dependencies:
@@ -35,7 +27,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  
+
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

@@ -2,6 +2,7 @@ library home_page;
 
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
+import 'package:home_page/src/home_page/panel/panel.dart';
 import 'package:home_page/src/ingredients_menu/categories.dart';
 import 'package:home_page/src/ingredients_menu/menu.dart';
 
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 const HeightSpacer(
                   size: Space.medium,
                 ),
-                CardBox(height: screenHeight * 0.5, width: screenWidth),
+                HomeScreenPanel(height: screenHeight * 0.5, width: screenWidth)
               ]),
             ),
           ),

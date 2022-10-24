@@ -4,13 +4,15 @@ class CustomIconButton extends StatefulWidget {
   final IconData icon;
   final Color color;
   final String text;
+  final double? size;
   final Function() onTap;
   const CustomIconButton(
       {super.key,
       required this.icon,
       this.color = Colors.black,
       this.text = '',
-      required this.onTap});
+      required this.onTap,
+      this.size});
 
   @override
   State<CustomIconButton> createState() => _CustomIconButtonState();
@@ -26,7 +28,7 @@ class _CustomIconButtonState extends State<CustomIconButton> {
         children: [
           Icon(
             widget.icon,
-            size: 30,
+            size: widget.size ?? 30,
             color: widget.color,
           ),
           if (widget.text.isNotEmpty) Text(widget.text)
