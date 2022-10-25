@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_page/src/keys.dart';
 import 'package:models/menu_model.dart';
 
 import 'menu_states.dart';
@@ -36,8 +37,10 @@ class IngredientsMenuCubit extends Cubit<IngredientsMenuState> {
     if (!state.menu.ingredients!.contains(item)) {
       var items = List<String>.from(state.menu.ingredients!);
       items.add(item);
+      listKey.currentState?.insertItem(items.length - 1);
       MenuModel menu = state.menu.copyWith(ingredients: items);
       debugPrint('item added to the list');
+
       emit(MenuCategoryOpen(menu));
     }
   }
@@ -46,6 +49,7 @@ class IngredientsMenuCubit extends Cubit<IngredientsMenuState> {
     if (state.menu.ingredients!.contains(item)) {
       var items = List<String>.from(state.menu.ingredients!);
       items.remove(item);
+
       debugPrint('item removed from list');
       MenuModel menu = state.menu.copyWith(ingredients: items);
       if (state is MenuClosed) {

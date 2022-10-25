@@ -18,7 +18,7 @@ class CardBox extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: const EdgeInsets.symmetric(horizontal: Spacing.xLarge),
+      padding: const EdgeInsets.all(Spacing.xLarge),
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(RadiusSize.button),
