@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_page/src/keys.dart';
@@ -11,11 +12,13 @@ class IngredientsMenuCubit extends Cubit<IngredientsMenuState> {
             MenuModel(category: FoodCategory.none, ingredients: [])));
 
   void openMenu() {
+    FirebaseAnalytics.instance.logEvent(name: 'menu_open');
     debugPrint('opening Menu');
     emit(MenuOpen(state.menu));
   }
 
   void closeMenu() {
+    FirebaseAnalytics.instance.logEvent(name: 'menu_closed');
     debugPrint('closing Menu');
     emit(MenuClosed(state.menu));
   }
@@ -23,12 +26,14 @@ class IngredientsMenuCubit extends Cubit<IngredientsMenuState> {
   void openIngredientsCategory(
     FoodCategory category,
   ) {
+    FirebaseAnalytics.instance.logEvent(name: 'menu_category_open');
     debugPrint('opening IngredientsCategory');
     MenuModel menu = state.menu.copyWith(category: category);
     emit(MenuCategoryOpen(menu));
   }
 
   void closeIngredientsCategory() {
+    FirebaseAnalytics.instance.logEvent(name: 'menu_category_closed');
     debugPrint('closing IngredientsCategory');
     emit(MenuOpen(state.menu));
   }

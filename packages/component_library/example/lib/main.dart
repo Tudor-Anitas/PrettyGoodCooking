@@ -1,6 +1,6 @@
+import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
-import 'package:component_library/component_library.dart';
 
 void main() {
   runApp(MaterialApp(
