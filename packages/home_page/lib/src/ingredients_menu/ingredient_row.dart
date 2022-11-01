@@ -1,5 +1,9 @@
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../home_page.dart';
+
 
 class IngredientRow extends StatefulWidget {
   final String name;
@@ -13,15 +17,36 @@ class _IngredientRowState extends State<IngredientRow> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      height: Spacing.xxLarge,
-      width: screenWidth,
-      padding: const EdgeInsets.symmetric(horizontal: Spacing.xxLarge),
-      margin: const EdgeInsets.only(bottom: Spacing.medium),
-      child: Row(children: [
-        Checkbox(value: true, onChanged: (value) {}),
-        Text(widget.name)
-      ]),
+    return BlocBuilder<IngredientsMenuCubit, IngredientsMenuState>(
+      builder: (context, state) {
+        bool isIngredientInList = isIngredientInState(state);
+        return Container(
+          height: Spacing.xxLarge,
+          width: screenWidth,
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.xxLarge),
+          child: Row(children: [
+            Checkbox(
+                value: isIngredientInList,
+                onChanged: (value) {
+                  if (value!) {
+                    context.read<IngredientsMenuCubit>().addItem(widget.name);
+                  } else {
+                    context
+                        .read<IngredientsMenuCubit>()
+                        .removeItem(widget.name);
+                  }
+                }),
+            Text(widget.name)
+          ]),
+        );
+      },
     );
+  }
+
+  bool isIngredientInState(IngredientsMenuState state) {
+    if (state is MenuCategoryOpen) {
+      return state.menu.ingredients!.contains(widget.name);
+    }
+    return false;
   }
 }

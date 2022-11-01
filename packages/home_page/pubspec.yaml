@@ -14,6 +14,9 @@ dependencies:
   component_library:
     path: ../component_library
 
+  models:
+    path: ../models
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -21,6 +24,7 @@ dependencies:
   firebase_core: ^1.24.0
   cloud_firestore: ^3.5.1
   equatable: ^2.0.5
+  firebase_analytics: ^9.3.8
 
 dev_dependencies:
   flutter_test:

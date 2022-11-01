@@ -19,7 +19,8 @@ class LongButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        constraints: const BoxConstraints(minHeight: 70, minWidth: 50),
+        constraints: const BoxConstraints(
+            minHeight: 70, minWidth: 150, maxHeight: 70),
         decoration: BoxDecoration(
             color: color ?? Theme.of(context).backgroundColor,
             borderRadius: BorderRadius.circular(RadiusSize.button)),
@@ -28,8 +29,10 @@ class LongButton extends StatelessWidget {
           child: Text(
             text,
             style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: textColor ?? Colors.black,
-                fontFamily: GoogleFonts.passionOne().fontFamily),
+                  color: textColor ?? Colors.black,
+                  fontFamily: GoogleFonts.passionOne().fontFamily,
+                ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),

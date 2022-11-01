@@ -1,4 +1,6 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:home_page/home_page.dart';
 import 'package:pretty_good_cooking/firebase_options.dart';
@@ -11,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   runApp(const MyApp());
 }
 
