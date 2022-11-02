@@ -41,7 +41,7 @@ dependencies:
   component_library:
     path: 'packages/component_library'
   home_page:
-    path: 'packages/home_page'
+    path: 'packages/features/home_page'
 
   go_router: ^5.1.0
   flutter_bloc: ^8.1.1

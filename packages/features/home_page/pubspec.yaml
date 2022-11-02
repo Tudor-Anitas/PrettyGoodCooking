@@ -12,10 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   component_library:
-    path: ../component_library
+    path: ../../component_library
 
   models:
-    path: ../models
+    path: ../../models
 
   flutter_localizations:
     sdk: flutter
