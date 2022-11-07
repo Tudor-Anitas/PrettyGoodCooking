@@ -40,13 +40,13 @@ class _PanelRowState extends State<PanelRow> {
               size: 24,
               color: AppColors.pink,
               onTap: () {
-                AnimatedList.of(context).removeItem(widget.index,
-                    (context, animation) {
-                  return PanelRow(
-                      ingredient: widget.ingredient,
-                      animation: animation,
-                      index: widget.index);
-                });
+                // AnimatedList.of(context).removeItem(widget.index,
+                //     (context, animation) {
+                //   return PanelRow(
+                //       ingredient: widget.ingredient,
+                //       animation: animation,
+                //       index: widget.index);
+                // });
                 context
                     .read<IngredientsMenuCubit>()
                     .removeItem(widget.ingredient, isMenuClosed: true);

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:home_page/src/home_page/panel/panel.dart';
 import 'package:home_page/src/ingredients_menu/categories.dart';
 import 'package:home_page/src/ingredients_menu/menu.dart';
-
 import 'headline.dart';
 import 'nav_bar.dart';
+import 'search_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,7 +39,11 @@ class _HomePageState extends State<HomePage> {
                 const HeightSpacer(
                   size: Space.medium,
                 ),
-                HomeScreenPanel(height: screenHeight * 0.5, width: screenWidth)
+                HomeScreenPanel(height: screenHeight * 0.5, width: screenWidth),
+                const HeightSpacer(
+                  size: Space.medium,
+                ),
+                const SearchButton()
               ]),
             ),
           ),

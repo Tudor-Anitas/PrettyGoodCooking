@@ -23,17 +23,15 @@ class _HomeScreenPanelState extends State<HomeScreenPanel> {
           height: widget.height,
           width: widget.width,
           child: AnimatedList(
-              key: listKey,
-              itemBuilder: ((context, index, anim) {
-                if (state is MenuClosed) {
-                  return PanelRow(
-                    ingredient: state.menu.ingredients!.elementAt(index),
-                    animation: anim,
-                    index: index,
-                  );
-                }
-                return const SizedBox();
-              })),
+            key: listKey,
+            itemBuilder: ((context, index, anim) {
+              return PanelRow(
+                ingredient: state.menu.ingredients!.elementAt(index),
+                animation: anim,
+                index: index,
+              );
+            }),
+          ),
         );
       },
     );

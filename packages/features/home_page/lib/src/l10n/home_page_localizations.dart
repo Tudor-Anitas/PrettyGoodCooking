@@ -132,6 +132,12 @@ abstract class HomePageLocalizations {
   /// In en, this message translates to:
   /// **'DONE'**
   String get done;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search recipe!'**
+  String get search;
 }
 
 class _HomePageLocalizationsDelegate extends LocalizationsDelegate<HomePageLocalizations> {

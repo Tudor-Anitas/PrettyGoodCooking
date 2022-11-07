@@ -24,4 +24,7 @@ class HomePageLocalizationsEn extends HomePageLocalizations {
 
   @override
   String get done => 'DONE';
+
+  @override
+  String get search => 'Search recipe!';
 }
