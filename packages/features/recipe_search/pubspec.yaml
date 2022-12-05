@@ -1,5 +1,5 @@
 name: recipe_search
-description: A new Flutter package project.
+description: The page where users will pick which recipe fits their needs
 version: 0.0.1
 homepage:
 publish_to: none
@@ -12,6 +12,10 @@ dependencies:
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+
   flutter_bloc: ^8.1.1
 
   component_library:
@@ -34,7 +38,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  
+  generate: true
   # To add assets to your package, add an assets section, like this:
   assets:
     - assets/animations/

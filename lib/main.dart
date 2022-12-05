@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:home_page/home_page.dart';
+import 'package:recipe_search/recipe_search.dart';
 import 'package:pretty_good_cooking/firebase_options.dart';
 import 'package:component_library/component_library.dart';
 import 'package:pretty_good_cooking/routes.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-        HomePageLocalizations.delegate
+        HomePageLocalizations.delegate,
+        RecipeSearchLocalizations.delegate
       ],
       supportedLocales: const [Locale('en', '')],
       routerConfig: router,

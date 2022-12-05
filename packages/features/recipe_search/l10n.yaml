@@ -1,0 +1,6 @@
+arb-dir: lib/src/l10n
+template-arb-file: text_en.arb
+output-localization-file: recipe_search_localizations.dart
+output-class: RecipeSearchLocalizations
+nullable-getter: false
+synthetic-package: false
