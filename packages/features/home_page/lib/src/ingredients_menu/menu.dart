@@ -31,35 +31,38 @@ class _IngredientsMenuState extends State<IngredientsMenu> {
             height: screenHeight * 0.8,
             width: screenWidth,
             padding: const EdgeInsets.symmetric(horizontal: Spacing.medium),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              CustomIconButton(
-                  icon: Icons.arrow_back_ios,
-                  onTap: () {
-                    context
-                        .read<IngredientsMenuCubit>()
-                        .closeIngredientsCategory();
-                  }),
-              const SizedBox(
-                height: Spacing.xxLarge,
-              ),
-              IngredientsTable(
-                  height: screenHeight * 0.5,
-                  width: screenWidth,
-                  category: state is MenuCategoryOpen
-                      ? state.menu.category!
-                      : FoodCategory.none),
-              const SizedBox(
-                height: Spacing.medium,
-              ),
-              LongButton(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomIconButton(
+                    icon: Icons.arrow_back_ios,
+                    onTap: () {
+                      context
+                          .read<IngredientsMenuCubit>()
+                          .closeIngredientsCategory();
+                    }),
+                const SizedBox(
+                  height: Spacing.xxLarge,
+                ),
+                IngredientsTable(
+                    height: screenHeight * 0.5,
+                    width: screenWidth,
+                    category: state is MenuCategoryOpen
+                        ? state.menu.category!
+                        : FoodCategory.none),
+                const SizedBox(
+                  height: Spacing.medium,
+                ),
+                LongButton(
                   text: HomePageLocalizations.of(context).done,
                   onTap: () {
                     context
                         .read<IngredientsMenuCubit>()
                         .closeIngredientsCategory();
-                  })
-            ]),
+                  },
+                )
+              ],
+            ),
           ),
         );
       },
