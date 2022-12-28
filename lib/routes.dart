@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:home_page/home_page.dart';
 import 'package:recipe_search/recipe_search.dart';
 
-final GoRouter router = GoRouter(routes: [
-  GoRoute(
-    path: '/',
-    builder: (context, state) => BlocProvider(
-      create: (context) => IngredientsMenuCubit(),
-      child: const HomePage(),
+final GoRouter router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
     ),
-  ),
-  GoRoute(
-    path: '/search',
-    pageBuilder: (context, state) => customTransition<void>(
-      context: context,
-      state: state,
-      child: BlocProvider(
-        create: ((context) => SearchRecipeCubitCubit()),
+    GoRoute(
+      path: '/search',
+      pageBuilder: (context, state) => customTransition<void>(
+        context: context,
+        state: state,
         child: RecipeSearchPage(
-          ingredients: state.extra as List<String>,
+          ingredients:
+              state.extra is List<String> ? state.extra as List<String> : [],
         ),
       ),
+      routes: [
+        GoRoute(
+          path: 'details',
+          builder: (context, state) {
+            List extra = state.extra as List;
+            return RecipeDetails(
+              recipeId: extra.elementAt(0),
+              image: extra.elementAt(1),
+            );
+          },
+        ),
+      ],
     ),
-  )
-]);
+  ],
+);
 
 CustomTransitionPage customTransition<T>(
     {required BuildContext context,

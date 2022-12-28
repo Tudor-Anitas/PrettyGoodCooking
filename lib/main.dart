@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_page/home_page.dart';
 import 'package:recipe_search/recipe_search.dart';
 import 'package:pretty_good_cooking/firebase_options.dart';
@@ -21,17 +22,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: AppTheme().currentTheme,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        HomePageLocalizations.delegate,
-        RecipeSearchLocalizations.delegate
-      ],
-      supportedLocales: const [Locale('en', '')],
-      routerConfig: router,
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => IngredientsMenuCubit(),
+          ),
+          BlocProvider(
+            create: ((context) => SearchRecipeCubit()),
+          ),
+        ],
+        child: MaterialApp.router(
+          theme: AppTheme().currentTheme,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            HomePageLocalizations.delegate,
+            RecipeSearchLocalizations.delegate
+          ],
+          supportedLocales: const [Locale('en', '')],
+          routerConfig: router,
+        ));
   }
 }

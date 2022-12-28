@@ -27,6 +27,7 @@ dependencies:
   models:
     path: ../../models
   lottie: ^1.4.3
+  go_router: ^5.2.3
 
 dev_dependencies:
   flutter_test:
