@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:home_page/home_page.dart';
@@ -25,8 +27,7 @@ final GoRouter router = GoRouter(
           builder: (context, state) {
             List extra = state.extra as List;
             return RecipeDetails(
-              recipeId: extra.elementAt(0),
-              image: extra.elementAt(1),
+              recipe: extra.elementAt(0),
             );
           },
         ),

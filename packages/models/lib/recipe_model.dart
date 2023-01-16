@@ -24,6 +24,8 @@ class Recipe {
   late final int usedIngredientCount;
   late final List<IngredientApiModel> usedIngredients;
 
+  Recipe.empty();
+
   Recipe.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];

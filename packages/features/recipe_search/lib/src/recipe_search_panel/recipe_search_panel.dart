@@ -15,12 +15,12 @@ class RecipeSearchPage extends StatefulWidget {
 }
 
 class _RecipeSearchPageState extends State<RecipeSearchPage> {
-
   @override
   void initState() {
     context.read<SearchRecipeCubit>().changeLoadingState(false);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -60,9 +60,7 @@ class _RecipeSearchPageState extends State<RecipeSearchPage> {
                           (context, index) {
                             var recipe = snapshot.data?.elementAt(index);
                             return RecipeItem(
-                              tag: index.toString(),
-                              name: recipe?.title,
-                              image: recipe?.image,
+                              recipe: recipe!,
                             );
                           },
                         ),
