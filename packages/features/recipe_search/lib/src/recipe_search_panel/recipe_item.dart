@@ -1,7 +1,10 @@
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:models/recipe_model.dart';
+
+import '../../recipe_search.dart';
 
 class RecipeItem extends StatelessWidget {
   final Recipe recipe;
@@ -12,8 +15,10 @@ class RecipeItem extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: () =>
-          context.push('/search/details', extra: [recipe]),
+      onTap: () {
+        context.read<SearchRecipeCubit>().openRecipeDetailsPage(recipe);
+        context.push('/search/details');
+      },
       child: CardBox(
         height: screenHeight * 0.15,
         width: screenWidth,

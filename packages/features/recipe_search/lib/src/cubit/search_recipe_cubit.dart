@@ -30,7 +30,6 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
 
   changeTouchedIndex(int newIndex) {
     emit(state.copyWith(touchedIndex: newIndex));
-    print(state.touchedIndex);
   }
 
   Future<List<Recipe>> searchRecipes(List<String> ingredients) async {

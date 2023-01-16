@@ -25,10 +25,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'details',
           builder: (context, state) {
-            List extra = state.extra as List;
-            return RecipeDetails(
-              recipe: extra.elementAt(0),
-            );
+            return RecipeDetails();
           },
         ),
       ],

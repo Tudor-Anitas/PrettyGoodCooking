@@ -6,7 +6,14 @@ import 'package:recipe_search/recipe_search.dart';
 import 'package:recipe_search/src/recipe_details/category_box.dart';
 
 class IngredientsPieChart extends StatefulWidget {
-  const IngredientsPieChart({super.key});
+  final int ingredientsCount;
+  final int missingIngredientsCount;
+  final int unusedIngredientsCount;
+  const IngredientsPieChart(
+      {super.key,
+      required this.ingredientsCount,
+      required this.missingIngredientsCount,
+      required this.unusedIngredientsCount});
 
   @override
   State<IngredientsPieChart> createState() => _IngredientsPieChartState();
@@ -28,21 +35,21 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
           switch (index) {
             case 0:
               return PieChartSectionData(
-                value: 25,
+                value: widget.ingredientsCount.toDouble(),
                 color: AppColors.cactusGreen,
                 showTitle: false,
                 radius: radius,
               );
             case 1:
               return PieChartSectionData(
-                  value: 45,
+                  value: widget.missingIngredientsCount.toDouble(),
                   color: AppColors.pink,
                   showTitle: false,
                   radius: radius);
 
             case 2:
               return PieChartSectionData(
-                  value: 30,
+                  value: widget.unusedIngredientsCount.toDouble(),
                   color: Colors.deepPurpleAccent,
                   showTitle: false,
                   radius: radius);
