@@ -20,7 +20,7 @@ class Recipe {
   late final int missedIngredientCount;
   late final List<IngredientApiModel> missedIngredients;
   late final String title;
-  late final List<dynamic> unusedIngredients;
+  late final List<IngredientApiModel> unusedIngredients;
   late final int usedIngredientCount;
   late final List<IngredientApiModel> usedIngredients;
 
@@ -36,8 +36,9 @@ class Recipe {
         .map((e) => IngredientApiModel.fromJson(e))
         .toList();
     title = json['title'];
-    unusedIngredients =
-        List.castFrom<dynamic, dynamic>(json['unusedIngredients']);
+    unusedIngredients = List.from(json['unusedIngredients'])
+        .map((e) => IngredientApiModel.fromJson(e))
+        .toList();
     usedIngredientCount = json['usedIngredientCount'];
     usedIngredients = List.from(json['usedIngredients'])
         .map((e) => IngredientApiModel.fromJson(e))
@@ -54,7 +55,8 @@ class Recipe {
     data['missedIngredients'] =
         missedIngredients.map((e) => e.toJson()).toList();
     data['title'] = title;
-    data['unusedIngredients'] = unusedIngredients;
+    data['unusedIngredients'] =
+        unusedIngredients.map((e) => e.toJson()).toList();
     data['usedIngredientCount'] = usedIngredientCount;
     data['usedIngredients'] = usedIngredients.map((e) => e.toJson()).toList();
     return data;

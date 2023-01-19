@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:models/recipe_model.dart';
 import 'package:recipe_search/recipe_search.dart';
-import 'package:recipe_search/src/recipe_details/details_box.dart';
-import 'package:recipe_search/src/recipe_details/ingredients_piechart.dart';
+import 'package:recipe_search/src/recipe_details/details_area.dart';
 
 class RecipeDetails extends StatefulWidget {
   const RecipeDetails({super.key});
@@ -42,7 +41,7 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         const SizedBox(
                           height: Spacing.large,
                         ),
-                        const DetailsBox()
+                        const DetailsArea()
                       ],
                     ),
                   ),

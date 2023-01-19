@@ -5,11 +5,13 @@ class CustomText extends StatelessWidget {
   final String text;
   final Color? color;
   final TextAlign alignment;
+  final bool? softWrap;
   const CustomText(this.text,
       {this.color,
       this.alignment = TextAlign.center,
       this.type = TextType.normal,
-      super.key});
+      super.key,
+      this.softWrap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,18 @@ class CustomText extends StatelessWidget {
             .textTheme
             .headline4!
             .copyWith(color: color, fontWeight: FontWeight.w700);
+        break;
+      case TextType.headline:
+        style = Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: color, fontWeight: FontWeight.w500);
+        break;
+      case TextType.headlineW600:
+        style = Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: color, fontWeight: FontWeight.w600);
         break;
       case TextType.normal:
         style = Theme.of(context).textTheme.bodyText2!.copyWith(color: color);
@@ -32,8 +46,9 @@ class CustomText extends StatelessWidget {
       text,
       style: style,
       textAlign: alignment,
+      softWrap: softWrap,
     );
   }
 }
 
-enum TextType { title, normal, button }
+enum TextType { title, headline, headlineW600, normal, button }

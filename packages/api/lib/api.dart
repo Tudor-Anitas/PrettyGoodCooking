@@ -40,10 +40,7 @@ class RecipeApi {
           '$base/recipes/$recipeId/analyzedInstructions?apiKey=$_apiKey'));
       if (response.statusCode == 200) {
         var jsonBody = json.decode(response.body);
-        //return RecipeDetails.fromJson(jsonBody);
-        RecipeDetails details = RecipeDetails.fromJson(jsonBody[0]);
-        print(jsonBody);
-        //return details;
+        return RecipeDetails.fromJson(jsonBody[0]);
       } else {
         AnalyticsService().logEvent(
             name: 'api_recipe_details_status_code',
@@ -52,7 +49,7 @@ class RecipeApi {
     } catch (e) {
       // AnalyticsService()
       //     .logEvent(name: 'api_recipe_details_error', parameters: {'stack': e});
-      print(e);
+
     }
     return RecipeDetails.fromJson({});
   }

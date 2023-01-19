@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:home_page/home_page.dart';
@@ -25,7 +23,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'details',
           builder: (context, state) {
-            return RecipeDetails();
+            return const RecipeDetails();
           },
         ),
       ],

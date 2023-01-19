@@ -8,12 +8,11 @@ import 'package:recipe_search/src/recipe_details/category_box.dart';
 class IngredientsPieChart extends StatefulWidget {
   final int ingredientsCount;
   final int missingIngredientsCount;
-  final int unusedIngredientsCount;
-  const IngredientsPieChart(
-      {super.key,
-      required this.ingredientsCount,
-      required this.missingIngredientsCount,
-      required this.unusedIngredientsCount});
+  const IngredientsPieChart({
+    super.key,
+    required this.ingredientsCount,
+    required this.missingIngredientsCount,
+  });
 
   @override
   State<IngredientsPieChart> createState() => _IngredientsPieChartState();
@@ -27,7 +26,7 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
     int touchedIndex = context.watch<SearchRecipeCubit>().state.touchedIndex;
     List<PieChartSectionData> pieChartSections() {
       return List.generate(
-        3,
+        2,
         ((index) {
           final isTouched = index == touchedIndex;
 
@@ -47,12 +46,6 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
                   showTitle: false,
                   radius: radius);
 
-            case 2:
-              return PieChartSectionData(
-                  value: widget.unusedIngredientsCount.toDouble(),
-                  color: Colors.deepPurpleAccent,
-                  showTitle: false,
-                  radius: radius);
             default:
               throw Error();
           }
@@ -61,11 +54,12 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
     }
 
     return SizedBox(
-      height: screenHeight * 0.5,
+      height: screenHeight * 0.4,
       width: screenWidth,
       child: Column(
         children: [
-          Expanded(
+          Flexible(
+            flex: 30,
             child: PieChart(
               PieChartData(
                   pieTouchData: PieTouchData(
@@ -89,7 +83,8 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
           const SizedBox(
             height: Spacing.large,
           ),
-          Expanded(
+          Flexible(
+            flex: 15,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -103,11 +98,6 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
                   color: AppColors.pink,
                   isTouched: touchedIndex == 1,
                 ),
-                CategoryBox(
-                  text: 'unused ingredients',
-                  color: Colors.deepPurpleAccent,
-                  isTouched: touchedIndex == 2,
-                )
               ],
             ),
           )

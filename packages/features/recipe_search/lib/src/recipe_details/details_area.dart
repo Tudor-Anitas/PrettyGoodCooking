@@ -3,24 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:models/recipe_model.dart';
 import 'package:recipe_search/src/cubit/search_recipe_cubit.dart';
+import 'package:recipe_search/src/recipe_details/ingredients_list/ingredients_list.dart';
 
 import 'ingredients_piechart.dart';
 
-class DetailsBox extends StatefulWidget {
-  const DetailsBox({super.key});
+class DetailsArea extends StatefulWidget {
+  const DetailsArea({super.key});
 
   @override
-  State<DetailsBox> createState() => _DetailsBoxState();
+  State<DetailsArea> createState() => _DetailsAreaState();
 }
 
-class _DetailsBoxState extends State<DetailsBox> {
+class _DetailsAreaState extends State<DetailsArea> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     Recipe recipe = context.read<SearchRecipeCubit>().state.recipe;
     return CardBox(
-      height: screenHeight * 0.8,
+      height: calculateTotalHeight(recipe, screenHeight),
       width: screenWidth,
       child: Column(
         children: [
@@ -34,11 +35,23 @@ class _DetailsBoxState extends State<DetailsBox> {
           IngredientsPieChart(
             ingredientsCount: recipe.usedIngredientCount,
             missingIngredientsCount: recipe.missedIngredientCount,
-            unusedIngredientsCount: recipe.unusedIngredients.length,
           ),
-          
+          const SizedBox(
+            height: Spacing.medium,
+          ),
+          const IngredientsList()
         ],
       ),
     );
   }
+}
+
+calculateTotalHeight(Recipe recipe, double screenHeight) {
+  double heightChartAndTitle = screenHeight * 0.7;
+  int nrOfIngredients = recipe.usedIngredientCount +
+      recipe.missedIngredientCount +
+      recipe.unusedIngredients.length;
+  double heightIngredientNames = screenHeight * nrOfIngredients * 0.03;
+
+  return heightChartAndTitle + heightIngredientNames;
 }
