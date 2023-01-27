@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:lottie/lottie.dart';
@@ -61,7 +62,12 @@ class _RecipeSearchPageState extends State<RecipeSearchPage> {
                             var recipe = snapshot.data?.elementAt(index);
                             return RecipeItem(
                               recipe: recipe!,
-                            );
+                            )
+                                .animate()
+                                .fade(
+                                    curve: Curves.fastLinearToSlowEaseIn,
+                                    duration: 500.ms)
+                                .slideY(begin: -1);
                           },
                         ),
                       )

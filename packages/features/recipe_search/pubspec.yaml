@@ -17,6 +17,7 @@ dependencies:
   intl: ^0.17.0
   fl_chart: ^0.55.2
   flutter_bloc: ^8.1.1
+  flutter_animate: ^3.0.0
 
   component_library:
     path: ../../component_library
