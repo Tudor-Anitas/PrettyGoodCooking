@@ -5,14 +5,14 @@ import 'package:models/recipe_model.dart';
 import 'package:recipe_search/recipe_search.dart';
 import 'package:recipe_search/src/recipe_details/details_area.dart';
 
-class RecipeDetails extends StatefulWidget {
-  const RecipeDetails({super.key});
+class RecipeDetailsPage extends StatefulWidget {
+  const RecipeDetailsPage({super.key});
 
   @override
-  State<RecipeDetails> createState() => _RecipeDetailsState();
+  State<RecipeDetailsPage> createState() => _RecipeDetailsPageState();
 }
 
-class _RecipeDetailsState extends State<RecipeDetails> {
+class _RecipeDetailsPageState extends State<RecipeDetailsPage> {
   @override
   Widget build(BuildContext context) {
     Recipe recipe = context.watch<SearchRecipeCubit>().state.recipe;
@@ -29,6 +29,7 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                   margin: EdgeInsets.only(top: state.statusBarHeight),
                   child: SizedBox(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Hero(
                           tag: recipe.id,
@@ -41,7 +42,10 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         const SizedBox(
                           height: Spacing.large,
                         ),
-                        const DetailsArea()
+                        if (snapshot.data != null)
+                          DetailsArea(
+                            details: snapshot.data!,
+                          )
                       ],
                     ),
                   ),

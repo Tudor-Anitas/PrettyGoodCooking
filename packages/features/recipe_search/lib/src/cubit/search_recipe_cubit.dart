@@ -1,6 +1,7 @@
 import 'package:api/api.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:models/recipe_details_model.dart';
 import 'package:models/recipe_model.dart';
 
 part 'search_recipe_state.dart';
@@ -37,11 +38,8 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
     return recipes;
   }
 
-  //TODO decomment this method to run when the recipe details is opened
-  // Future<RecipeDetails> getRecipeDetails(String recipeId) async {
-  //   return await RecipeApi().getRecipeDetails(recipeId);
-  // }
-  Future getRecipeDetails(String recipeId) async {
-    //return await RecipeApi().getRecipeDetails(recipeId);
+  Future<RecipeDetails> getRecipeDetails(String recipeId) async {
+    var details = await RecipeApi().getRecipeDetails(recipeId);
+    return details;
   }
 }

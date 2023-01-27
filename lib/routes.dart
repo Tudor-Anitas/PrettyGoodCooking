@@ -23,7 +23,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'details',
           builder: (context, state) {
-            return const RecipeDetails();
+            return const RecipeDetailsPage();
           },
         ),
       ],

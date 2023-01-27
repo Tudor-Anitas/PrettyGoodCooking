@@ -35,7 +35,7 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
             case 0:
               return PieChartSectionData(
                 value: widget.ingredientsCount.toDouble(),
-                color: AppColors.cactusGreen,
+                color: AppColors.lightGreen,
                 showTitle: false,
                 radius: radius,
               );
@@ -90,7 +90,7 @@ class _IngredientsPieChartState extends State<IngredientsPieChart> {
               children: [
                 CategoryBox(
                   text: 'ingredients',
-                  color: AppColors.cactusGreen,
+                  color: AppColors.lightGreen,
                   isTouched: touchedIndex == 0,
                 ),
                 CategoryBox(

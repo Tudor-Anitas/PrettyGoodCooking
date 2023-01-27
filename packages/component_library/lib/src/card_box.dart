@@ -9,8 +9,8 @@ class CardBox extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   const CardBox(
-      {this.height = 0,
-      this.width = 0,
+      {this.height,
+      this.width,
       this.color = Colors.white,
       super.key,
       this.child,

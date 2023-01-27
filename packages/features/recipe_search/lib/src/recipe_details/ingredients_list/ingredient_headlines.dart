@@ -33,12 +33,10 @@ buildIngredientHeadlines(
       if (indexesAreEqual(
           state.touchedIndex, ingredients.elementAt(index).category)) {
         textColor = state.touchedIndex == 0
-            ? AppColors.cactusGreen
+            ? AppColors.lightGreen
             : state.touchedIndex == 1
                 ? AppColors.pink
-                : state.touchedIndex == 2
-                    ? Colors.deepPurpleAccent
-                    : Colors.black;
+                : Colors.black;
 
         textType = TextType.headlineW600;
       }
