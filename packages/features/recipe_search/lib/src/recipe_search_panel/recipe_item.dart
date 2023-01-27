@@ -1,6 +1,7 @@
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:models/recipe_model.dart';
 
@@ -34,21 +35,25 @@ class RecipeItem extends StatelessWidget {
                 height: screenHeight * 0.125,
                 width: screenHeight * 0.125,
                 padding: EdgeInsets.zero,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(RadiusSize.button),
-                    child: Image.network(
-                      recipe.image,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        );
-                        //return Container(color: Colors.blue,);
-                      },
-                      fit: BoxFit.cover,
-                    )),
+                child: Stack(
+                  alignment: Alignment.center,
+                  fit: StackFit.expand,
+                  children: [
+                    Center(
+                      child: CircularProgressIndicator(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(RadiusSize.button),
+                      child: Image.network(recipe.image,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              SvgPicture.asset(
+                                  'packages/recipe_search/assets/img/food_loading.svg')),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

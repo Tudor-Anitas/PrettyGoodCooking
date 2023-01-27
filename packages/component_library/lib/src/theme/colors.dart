@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppColors {
   static const darkGreen = Color(0xff283618);
@@ -9,6 +9,7 @@ class AppColors {
   static const pink = Color(0xffe75456);
   static const brown = Color(0xff754c24);
   static const darkBej = Color(0xffc69c6d);
+  static const grey = Color(0xffd9d9d9);
 }
 
 Map<int, Color> darkGreenCodes = {
