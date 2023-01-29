@@ -8,3 +8,4 @@ export 'src/custom_text.dart';
 export 'src/spacer.dart';
 export 'src/icon_button.dart';
 export 'src/long_button.dart';
+export 'src/rounded_tag.dart';

@@ -3,8 +3,10 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:lottie/lottie.dart';
+import 'package:models/recipe_model.dart';
 import 'package:recipe_search/src/recipe_search_panel/recipe_item.dart';
 import 'package:recipe_search/src/recipe_search_panel/search_panel_header.dart';
+import 'package:recipe_search/src/recipe_search_panel/sorting.dart';
 import '../cubit/search_recipe_cubit.dart';
 
 class RecipeSearchPage extends StatefulWidget {
@@ -59,9 +61,11 @@ class _RecipeSearchPageState extends State<RecipeSearchPage> {
                         delegate: SliverChildBuilderDelegate(
                           childCount: snapshot.data?.length,
                           (context, index) {
-                            var recipe = snapshot.data?.elementAt(index);
+                            List<Recipe> recipes =
+                                sortByLeastMissingIngredients(snapshot.data!);
+                            var recipe = recipes.elementAt(index);
                             return RecipeItem(
-                              recipe: recipe!,
+                              recipe: recipe,
                             )
                                 .animate()
                                 .fade(

@@ -62,17 +62,40 @@ class RecipeItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
+                  SizedBox(
+                    height: screenHeight * 0.125 * 0.75,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
                           child: Text(
-                        recipe.title,
-                        style: Theme.of(context).textTheme.headline6,
-                        textAlign: TextAlign.center,
-                      )),
-                    ],
+                            recipe.title,
+                            style: Theme.of(context).textTheme.headline6,
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.clip,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                  SizedBox(
+                    height: screenHeight * 0.125 * 0.25,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RoundedTag(
+                          tag: IngredientTag.used,
+                          number: recipe.usedIngredientCount,
+                        ),
+                        const SizedBox(
+                          width: Spacing.medium,
+                        ),
+                        RoundedTag(
+                            tag: IngredientTag.missing,
+                            number: recipe.missedIngredientCount)
+                      ],
+                    ),
+                  )
                 ],
               ),
             )

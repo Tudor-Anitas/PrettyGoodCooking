@@ -5,8 +5,10 @@ class AppColors {
   static const bej = Color(0xffFEFAE0);
   static const navBarLight = Color(0xffDDA15E);
   static const lightGreen = Color(0xff39b54a);
+  static const difuseLightGreen = Color.fromARGB(255, 124, 173, 131);
   static const cactusGreen = Color(0xff606c38);
   static const pink = Color(0xffe75456);
+  static const difusePink = Color.fromARGB(255, 227, 121, 123);
   static const brown = Color(0xff754c24);
   static const darkBej = Color(0xffc69c6d);
   static const grey = Color(0xffd9d9d9);
